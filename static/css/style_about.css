@@ -1,0 +1,38 @@
+.padding {
+  padding: 20px 20px 20px 20px;
+}
+.header_line {
+background-color: #333333;
+min-width: 100px;
+min-height: 40px;
+}
+.footer_line {
+background-color: #333333;
+min-width: 100px;
+min-height: 60px;
+}
+.main_body {
+background-color: #F2F2F2;
+padding: 50px 0px 50px 0px;
+}
+body {
+font-family: "Roboto";
+}
+
+.blok-s-st {
+    width: 60%;
+    min-height: 200px;
+    margin: 0px 200px 0px 270px; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    background: #FFFFFF; /* Цвет фона */
+   }
+.st_txt {
+padding: 10px 20px 0px 20px; color: #222222; text-align: justify; font-size: 18px; text-indent: 5%;
+}
+.bttttn{
+border-radius: 0px 0px 0px 0px;
+height: 50px;
+width: 110px;
+font-family: "Roboto";
+font-size: 20px;
+}

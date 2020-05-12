@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style_main.css')}}">
+</head>
+<body>
+<div class="header_line">
+    {% if current_user.is_authenticated %}
+        <p style="text-align: right; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; color: #FFFFFF;">Добро пожаловать, {{ current_user.name }}</p>
+    {% endif %}
+</div>
+<div class="padding">
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <a href="/main"><button type="button" class="btn btn-secondary bttttn" style="border-radius: 10px 0px 0px 10px;">Главная</button></a>
+  <a href="/genre"><button type="button" class="btn btn-secondary bttttn">О жанре</button></a>
+  <a href="/books"><button type="button" class="btn btn-secondary bttttn">О книгах</button></a>
+  <a href="/other"><button type="button" class="btn btn-secondary bttttn">Прочее</button></a>
+  <a href="/about"><button type="button" class="btn btn-secondary bttttn" style="border-radius: 0px 10px 10px 0px;">О сайте</button></a>
+    {% if current_user.is_authenticated %}
+        <div style="padding: 0px 0px 0px 660px;">
+            <a href="/logout"><button type="button" class="btn btn-success btn-lg">Выйти</button></a>
+        </div>
+    {% else %}
+        <div style="padding: 0px 0px 0px 500px;">
+            <a href="/login"><button type="button" class="btn btn-success btn-lg">Войти</button></a>
+            <a href="/registration"><button type="button" class="btn btn-info btn-lg">Регистрация</button></a>
+        </div>
+    {% endif %}
+</div>
+</div>
+<div class="main_body">
+<div class="zakr">
+    <div>
+        <div class="zakr_content">
+            <div class="zakr_content_img">
+                <a href="article/{{articles[id_zakr_st].id}}"><img src="{{url_for('static', filename=articles[id_zakr_st].link_img)}}" style="width: 40%; height: 40%;"></a>
+            </div>
+            <div class="zakr_content_ost">
+                <a href="article/{{articles[id_zakr_st].id}}"><h1>{{articles[id_zakr_st].title}}</h1></a>
+                <div class="zakr_content_meta">
+                    <span class="category"></span>
+                    <span class="category">{{articles[id_zakr_st].date}}</span>
+                    <span class="author">{{user.name}}</span>
+                    <span class="author">{{articles[id_zakr_st].category}}</span>
+                </div>
+            <p style="font-size: 22px;">{{articles[id_zakr_st].description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+  h1 {
+    position: relative;
+    overflow: hidden;
+    font-size: 48px;
+    font-weight: normal;
+    text-align: center;
+  }
+  h1 > span {
+    display: inline-block;
+    margin: 0 .4em;
+  }
+  h1 > span:before,
+  h1 > span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: 2px solid #4e4e4e;
+    margin-top: .6em;
+  }
+  h1 > span:before {
+    margin-left: -102%;
+  }
+  h1 > span:after {
+    margin-left: 2%;
+  }
+</style>
+<h1><span>Новые публикации</span></h1>
+<div class="row row-cols-1 row-cols-md-4" style="margin-right: 0; border-left: 30px solid #EEEEEE; padding: 20px 0px 20px 0px;">
+    {% for item in articles %}
+      <div class="col mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{url_for('static', filename=articles[-item.id].link_img)}}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 28px;">{{articles[-item.id].title}}</h5>
+              <div class="zakr_content_meta">
+                            <span class="category">{{articles[-item.id].date}}</span>
+                            <span class="author">{{users[articles[-item.id].user_id - 1].name}}</span>
+                            <span class="author">{{articles[-item.id].category}}</span>
+                        </div>
+            <p class="card-text" style="font-size: 20px;">{{articles[-item.id].description}}</p>
+            <a href="/article/{{articles[-item.id].id}}" class="btn btn-primary">Читать</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+</div>
+<div class="footer_line">
+    <p style="color: #DDDDDD; padding: 20px 0px 0px 20px;">Ничего не защищено - всё вложил в ловкость и уворот. По вопросам пишите на zzzzzz13-169@mail.ru или в ВК <a href="https://vk.com/glorious_crusader">vk.com/glorious_crusader</a></p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{article.title}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style_article.css')}}">
+</head>
+<body>
+<div class="header_line">
+    {% if current_user.is_authenticated %}
+        <p style="text-align: right; padding-right: 20px; padding-top: 10px; padding-bottom: 10px; color: #FFFFFF;">Добро пожаловать, {{ current_user.name }}</p>
+    {% endif %}
+</div>
+<div class="padding">
+<div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+  <a href="/main"><button type="button" class="btn btn-secondary bttttn" style="border-radius: 10px 0px 0px 10px;">Главная</button></a>
+  <a href="/genre"><button type="button" class="btn btn-secondary bttttn">О жанре</button></a>
+  <a href="/books"><button type="button" class="btn btn-secondary bttttn">О книгах</button></a>
+  <a href="/other"><button type="button" class="btn btn-secondary bttttn">Прочее</button></a>
+  <a href="/about"><button type="button" class="btn btn-secondary bttttn" style="border-radius: 0px 10px 10px 0px;">О сайте</button></a>
+    {% if current_user.is_authenticated %}
+        <div style="padding: 0px 0px 0px 660px;">
+            <a href="/logout"><button type="button" class="btn btn-success btn-lg">Выйти</button></a>
+        </div>
+    {% else %}
+        <div style="padding: 0px 0px 0px 500px;">
+            <a href="/login"><button type="button" class="btn btn-success btn-lg">Войти</button></a>
+            <a href="/registration"><button type="button" class="btn btn-info btn-lg">Регистрация</button></a>
+        </div>
+    {% endif %}
+</div>
+</div>
+<div class="main_body">
+    <div style="overflow: hidden;">
+        <div style="width: 1000%;">
+            <div style="float: left; width: 330px; height: 300px;"><div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+            <div class="blok-s-rec-st">
+                {% if i != -(len - article.id + 1)%}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% else %}
+                    {% set i = i - 1 %}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% endif %}
+            </div>
+            </div>
+            <div class="back">
+            <div class="blok-s-rec-st" style="padding: 0px;">
+                {% if j != -(len - article.id + 1)%}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% else %}
+                    {% set j = j - 1 %}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div></div>
+            <div style="float: left; width: 330px; height: 300px;"><div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+            <div class="blok-s-rec-st">
+                {% if i != -(len - article.id + 1)%}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% else %}
+                    {% set i = i - 1 %}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% endif %}
+            </div>
+            </div>
+            <div class="back">
+            <div class="blok-s-rec-st" style="padding: 0px;">
+            {% if j != -(len - article.id + 1)%}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% else %}
+                    {% set j = j - 1 %}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div></div>
+            <div style="float: left; width: 330px; height: 300px;"><div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+            <div class="blok-s-rec-st">
+                {% if i != -(len - article.id + 1)%}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% else %}
+                    {% set i = i - 1 %}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% endif %}
+            </div>
+            </div>
+            <div class="back">
+            <div class="blok-s-rec-st" style="padding: 0px;">
+            {% if j != -(len - article.id + 1)%}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% else %}
+                    {% set j = j - 1 %}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div></div>
+            <div style="float: left; width: 330px; height: 300px;"><div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+            <div class="blok-s-rec-st">
+                {% if i != -(len - article.id + 1)%}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% else %}
+                    {% set i = i - 1 %}
+                    <h4>{{articles[i].title}}</h4>
+                    <p>{{articles[i].description}}</p>
+                    {% set i = i - 1 %}
+                {% endif %}
+            </div>
+            </div>
+            <div class="back">
+            <div class="blok-s-rec-st" style="padding: 0px;">
+            {% if j != -(len - article.id + 1)%}
+                    <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% else %}
+                    {% set j = j - 1 %}
+                        <a href="{{articles[j].id}}"><img src="{{url_for('static', filename=articles[j].link_img)}}" style="width: 292px; height: 192px;"></a>
+                    {% set j = j - 1 %}
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div></div>
+        </div>
+    </div>
+    <div class="blok-s-st">
+        <h1 style="padding: 20px; text-align: center; color: #222222; font-size: 54px;">{{article.title}}</h1>
+        <img src="{{url_for('static', filename=article.link_img)}}" style="width: 100%; height: 100%; padding: 0px 40px 0px 40px;">
+        {% for item in txt_st%}
+        <p style="padding: 20px 20px 0px 20px; color: #222222; text-align: justify; font-size: 18px;">{{item}}</p>
+        {% endfor %}
+    </div>
+    <div class="blok-s-st1">
+        <div class="zakr_content_meta">
+                    <span class="author">{{article.date}}</span>
+                    <span class="author">{{user.name}}</span>
+                    <span>{{article.category}}</span>
+                </div>
+    </div>
+    <div class="blok-s-st1">
+        <style>
+  h6 {
+    position: relative;
+    overflow: hidden;
+    font-size: 36px;
+    font-weight: normal;
+    text-align: center;
+  }
+  h6 > span {
+    display: inline-block;
+    margin: 0 .4em;
+  }
+  h6 > span:before,
+  h6 > span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: 2px solid #4e4e4e;
+    margin-top: .6em;
+  }
+  h6 > span:before {
+    margin-left: -102%;
+  }
+  h6 > span:after {
+    margin-left: 2%;
+  }
+</style>
+        <h6><span>См. также</span></h6>
+        <div class="row row-cols-1 row-cols-md-3" >
+          <div class="col mb-4">
+            <div class="card" style="width: 15rem;">
+          <img src="{{url_for('static', filename=articles[article.id_associated_article1 - 1].link_img)}}" style="height: 200px;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{articles[article.id_associated_article1 - 1].title}}</h5>
+              <div class="zakr_content_meta1">
+                            <span class="category">{{articles[article.id_associated_article1 - 1].date}}</span>
+                            <span class="author1">{{user.name}}</span>
+                            <span class="author1">{{articles[article.id_associated_article1 - 1].category}}</span>
+                        </div>
+            <p class="card-text">{{articles[article.id_associated_article1 - 1].description}}</p>
+            <a href="{{articles[article.id_associated_article1 - 1].id}}" class="btn btn-primary">Читать</a>
+          </div>
+        </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card" style="width: 15rem;">
+          <img src="{{url_for('static', filename=articles[article.id_associated_article2 - 1].link_img)}}" style="height: 200px;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{articles[article.id_associated_article2 - 1].title}}</h5>
+              <div class="zakr_content_meta1">
+                            <span class="category">{{articles[article.id_associated_article2 - 1].date}}</span>
+                            <span class="author1">{{user.name}}</span>
+                            <span class="author1">{{articles[article.id_associated_article2 - 1].category}}</span>
+                        </div>
+            <p class="card-text">{{articles[article.id_associated_article2 - 1].description}}</p>
+            <a href="{{articles[article.id_associated_article2 - 1].id}}" class="btn btn-primary">Читать</a>
+          </div>
+        </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card" style="width: 15rem;">
+          <img src="{{url_for('static', filename=articles[article.id_associated_article3 - 1].link_img)}}" style="height: 200px;" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{articles[article.id_associated_article3 - 1].title}}</h5>
+              <div class="zakr_content_meta1">
+                            <span class="category">{{articles[article.id_associated_article3 - 1].date}}</span>
+                            <span class="author1">{{user.name}}</span>
+                            <span class="author1">{{articles[article.id_associated_article3 - 1].category}}</span>
+                        </div>
+            <p class="card-text">{{articles[article.id_associated_article3 - 1].description}}</p>
+            <a href="{{articles[article.id_associated_article3 - 1].id}}" class="btn btn-primary">Читать</a>
+          </div>
+        </div>
+          </div>
+        </div>
+    </div>
+    <div style="width: 60%; height: 80px;
+    margin: 0px 200px 0px 270px; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    background: #FFFFFF; /* Цвет фона */
+    border-top: 4px solid #F2F2F2; border-bottom: 20px solid #F2F2F2;">
+        <p style="font-size: 20px;">Комментарии отключены.</p>
+    </div>
+</div>
+    <div class="footer_line">
+        <p style="color: #DDDDDD; padding: 20px 0px 0px 20px;">Ничего не защищено - всё вложил в ловкость и уворот. По вопросам пишите на zzzzzz13-169@mail.ru или в ВК <a href="https://vk.com/glorious_crusader">vk.com/glorious_crusader</a></p>
+    </div>
+</div>
+</div>
+</body>
+</html>

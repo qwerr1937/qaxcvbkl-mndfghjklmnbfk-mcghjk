@@ -1,0 +1,137 @@
+.padding {
+  padding: 20px 20px 20px 20px;
+}
+.header_line {
+background-color: #333333;
+min-width: 100px;
+min-height: 40px;
+}
+.footer_line {
+background-color: #333333;
+min-width: 100px;
+min-height: 60px;
+}
+.main_body {
+background-color: #F2F2F2;
+}
+body {
+font-family: "Roboto";
+}
+.flip-container {
+perspective: 1000;
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+width: 300px;
+height: 200px;
+}
+.flipper {
+transition: 0.6s;
+transform-style: preserve-3d;
+
+position: relative;
+}
+.front, .back {
+backface-visibility: hidden;
+
+position: absolute;
+top: 0;
+left: 0;
+}
+.front {
+z-index: 2;
+}
+.back {
+transform: rotateY(180deg);
+}
+
+.blok-s-rec-st {
+    width: 300px;
+    height: 200px;
+    margin: 30px; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    border: 4px solid black; /* Параметры границы */
+    background: #F2F2F2; /* Цвет фона */
+    text-align: center;
+   }
+.blok-s-st {
+    width: 60%;
+    min-height: 200px;
+    margin: 0px 200px 0px 270px; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    background: #FFFFFF; /* Цвет фона */
+    }
+.blok-s-st1 {
+    width: 60%;
+    margin: 0px 200px 0px 270px; /* Значение отступов */
+    padding: 10px; /* Поля вокруг текста */
+    background: #FFFFFF; /* Цвет фона */
+    border-top: 4px solid #F2F2F2;
+   }
+
+.zakr_content_meta {
+    flex-wrap: wrap;
+    font-size: 24px;
+    text-align: center;
+}
+time,
+.author {
+    padding-right: 36px;
+    position: relative;
+}
+time:after,
+.author:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00CC00;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+.zakr_content_meta1 {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.category,
+.author1 {
+    padding-right: 26px;
+    position: relative;
+}
+
+.category:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00CC00;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.author1:after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00CC00;
+    position: absolute;
+    top: 53%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.bttttn{
+border-radius: 0px 0px 0px 0px;
+height: 50px;
+width: 110px;
+font-family: "Roboto";
+font-size: 20px;
+}
